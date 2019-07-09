@@ -1,0 +1,13 @@
+name: AGMCTM
+version: ${project.version}
+main: amusingmctm.agmctm.Main
+description: This project is My Unko
+authors:
+  - minnminn119
+  - mueru
+  - teriyaki
+  - Sadaonium
+  - Ruin
+  - yutanpo
+  - yottyan
+  - loses
