@@ -1,21 +1,39 @@
 package amusingmctm.agmctm;
 
+import amusingmctm.agmctm.listeners.LoginListener;
+import amusingmctm.agmctm.listeners.LogoutListener;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
+    private static Main instance;
+
+    public static Main getInstance(){
+        return instance;
+    }
 
     //プラグインの起動
     @Override
     public void onEnable() {
+        instance = this;
+        this.saveDefaultConfig();
+        this.getServer().getPluginManager().registerEvents(new LoginListener(this),this);
+        this.getServer().getPluginManager().registerEvents(new LogoutListener(this),this);
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA+"START SUCCESS!");
-        getServer().getPluginManager().registerEvents(new JoinSystem(),this);
-
     }
+
     //プラグインの終了
     @Override
     public void onDisable() {
         getServer().getConsoleSender().sendMessage(ChatColor.RED+"END SUCCESS!");
+        instance =null;
+    }
+
+    @Override
+    public void onLoad(){
+        getServer().getConsoleSender().sendMessage((ChatColor.GREEN+"Plugin loaded."));
 
     }
+
+
 }

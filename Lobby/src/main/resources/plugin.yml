@@ -11,3 +11,6 @@ authors:
   - yutanpo
   - yottyan
   - loses
+commands:
+  AGMCPreload:
+    description: Reload the plugin

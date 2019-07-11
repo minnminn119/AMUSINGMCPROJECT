@@ -1,2 +1,3 @@
-amusingmctm\agmctm\JoinSystem.class
+amusingmctm\agmctm\listeners\LogoutListener.class
 amusingmctm\agmctm\Main.class
+amusingmctm\agmctm\listeners\LoginListener.class
