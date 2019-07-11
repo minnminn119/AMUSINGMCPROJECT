@@ -1,0 +1,16 @@
+name: AGMCTM
+version: 1.0-SNAPSHOT
+main: amusingmctm.agmctm.Main
+description: This project is My Unko
+authors:
+  - minnminn119
+  - mueru
+  - teriyaki
+  - Sadaonium
+  - Ruin
+  - yutanpo
+  - yottyan
+  - loses
+commands:
+  AGMCPreload:
+    description: Reload the plugin
