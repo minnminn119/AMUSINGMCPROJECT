@@ -1,5 +1,6 @@
 package amusingmctm.agmctm.listeners;
 
+import amusingmctm.agmctm.utils.JoinSound;
 import amusingmctm.agmctm.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -18,6 +19,7 @@ public class LogoutListener implements Listener {
         String setConfig =plugin.getConfig().getString("LeftMs");
         setConfig =setConfig.replaceAll("%player",event.getPlayer().getName());
         event.setQuitMessage(ChatColor.translateAlternateColorCodes(('&'),setConfig));
+
     }
 
 }
