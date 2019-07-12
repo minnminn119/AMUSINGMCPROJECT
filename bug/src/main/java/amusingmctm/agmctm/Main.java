@@ -6,13 +6,19 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
+    private static Main instance;
+
+    public static Main getInstance(){
+        return instance;
+    }
 
     //プラグインの起動
     @Override
     public void onEnable() {
-        saveDefaultConfig();
-        getServer().getPluginManager().registerEvents(new LoginListener(),this);
-        getServer().getPluginManager().registerEvents(new LogoutListener(),this);
+        instance = this;
+        this.saveDefaultConfig();
+        this.getServer().getPluginManager().registerEvents(new LoginListener(this),this);
+        this.getServer().getPluginManager().registerEvents(new LogoutListener(this),this);
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA+"START SUCCESS!");
     }
 
@@ -20,6 +26,7 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         getServer().getConsoleSender().sendMessage(ChatColor.RED+"END SUCCESS!");
+        instance =null;
     }
 
     @Override
@@ -27,6 +34,8 @@ public final class Main extends JavaPlugin {
         getServer().getConsoleSender().sendMessage((ChatColor.GREEN+"Plugin loaded."));
 
     }
+
+
 
 
 }
