@@ -19,7 +19,7 @@ public class EffectUtil implements Listener {
     public void onLoginEffect(PlayerJoinEvent event){
         Player player =(Player) event.getPlayer();
         Location loc= player.getLocation();
-        for(int i=10;i<4;i++){
+        for(int i=0;i<10;i++){
             player.getWorld().playEffect(loc,Effect.ENDER_SIGNAL,0);
         }
     }
