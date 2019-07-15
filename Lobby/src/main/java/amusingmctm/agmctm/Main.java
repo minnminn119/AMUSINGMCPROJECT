@@ -1,6 +1,7 @@
 package amusingmctm.agmctm;
 
 import amusingmctm.agmctm.listeners.LoginListener;
+import amusingmctm.agmctm.listeners.LoginTitle;
 import amusingmctm.agmctm.listeners.LogoutListener;
 import amusingmctm.agmctm.utils.EffectUtil;
 import amusingmctm.agmctm.utils.PotionUtil;
@@ -25,6 +26,7 @@ public final class Main extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new SoundUtil(this),this);
         this.getServer().getPluginManager().registerEvents(new EffectUtil(this),this);
         this.getServer().getPluginManager().registerEvents(new PotionUtil(this),this);
+        this.getServer().getPluginManager().registerEvents(new LoginTitle(this),this);
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA+"START SUCCESS!");
     }
 
@@ -40,8 +42,6 @@ public final class Main extends JavaPlugin {
         getServer().getConsoleSender().sendMessage((ChatColor.GREEN+"Plugin loaded."));
 
     }
-
-
 
 
 }

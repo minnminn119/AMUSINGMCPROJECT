@@ -1,2 +1,2 @@
-JoinMs: '%playerが参加してきました'
-LeftMs: '%playerが退出しました'
+JoinMs: '%playerが参加 on-ine:%online'
+LeftMs: '%playerが退出 online:%online'

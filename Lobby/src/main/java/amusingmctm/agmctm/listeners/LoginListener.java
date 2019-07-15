@@ -2,9 +2,12 @@ package amusingmctm.agmctm.listeners;
 
 import amusingmctm.agmctm.Main;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import static org.bukkit.Bukkit.getServer;
 
 public class LoginListener implements Listener {
     private Main plugin;
@@ -15,9 +18,17 @@ public class LoginListener implements Listener {
 
     @EventHandler
     public void onPlayerLogin(PlayerJoinEvent event) {
-        String setConfig = plugin.getConfig().getString("JoinMs");
-        setConfig = setConfig.replaceAll("%player", event.getPlayer().getName());
-        event.setJoinMessage(ChatColor.translateAlternateColorCodes(('&'), setConfig));
+        String msg=plugin.getConfig().getString("JoinMs");
+        msg = ChatColor.translateAlternateColorCodes('&',util(msg,event.getPlayer()));
+        event.setJoinMessage(msg);
 
+        }
+
+        public String util(String string, Player player){
+            string= string.replaceAll("%player",player.getName());
+            string= string.replaceAll("%server",player.getServer().getServerName());
+            string = string.replaceAll("%online", Integer.toString(getServer().getOnlinePlayers().size()));
+
+        return string;
         }
 }

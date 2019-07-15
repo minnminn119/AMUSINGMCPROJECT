@@ -2,9 +2,12 @@ package amusingmctm.agmctm.listeners;
 
 import amusingmctm.agmctm.Main;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import static org.bukkit.Bukkit.getServer;
 
 public class LogoutListener implements Listener {
     private Main plugin;
@@ -15,9 +18,16 @@ public class LogoutListener implements Listener {
 
     @EventHandler
     public void onLogout(PlayerQuitEvent event){
-        String setConfig =plugin.getConfig().getString("LeftMs");
-        setConfig =setConfig.replaceAll("%player",event.getPlayer().getName());
-        event.setQuitMessage(ChatColor.translateAlternateColorCodes(('&'),setConfig));
+        String msg =plugin.getConfig().getString("LeftMs");
+        msg = ChatColor.translateAlternateColorCodes(('&'),util(msg,event.getPlayer()));
+        event.setQuitMessage(msg);
+    }
+
+    public String util(String string, Player player){
+        string= string.replaceAll("%player",player.getName());
+        string = string.replaceAll("%online", Integer.toString(getServer().getOnlinePlayers().size()));
+
+        return string;
     }
 
 }

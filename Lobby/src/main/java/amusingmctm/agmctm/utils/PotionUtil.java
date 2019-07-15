@@ -17,12 +17,8 @@ public class PotionUtil implements Listener {
 
     @EventHandler
     public void onPotion(PlayerJoinEvent event){
-
         Player player =(Player) event.getPlayer();
-
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,100000,1));
-
-
     }
 
 
