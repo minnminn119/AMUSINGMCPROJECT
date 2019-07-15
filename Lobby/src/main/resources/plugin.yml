@@ -12,5 +12,18 @@ authors:
   - yottyan
   - loses
 commands:
-  AGMCPreload:
-    description: Reload the plugin
+  agmc:
+    description: AGMC Plugin Commands.
+    usage: '/agmc [reload]'
+
+permissions:
+  agmc.*:
+    description: agmc root permission
+    children:
+      agmc.command: true
+  agmc.command:
+    description: agmc commands permission
+    children:
+      agmc.command.reload: true
+  agmc.command.reload:
+    description: agmc reload command permission
