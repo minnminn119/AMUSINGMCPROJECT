@@ -28,6 +28,8 @@ public final class Main extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PotionUtil(this),this);
         this.getServer().getPluginManager().registerEvents(new LoginTitle(this),this);
         getServer().getConsoleSender().sendMessage(ChatColor.AQUA+"START SUCCESS!");
+
+        getCommand("agmc").setExecutor(new command_agmc(this));
     }
 
     //プラグインの終了
