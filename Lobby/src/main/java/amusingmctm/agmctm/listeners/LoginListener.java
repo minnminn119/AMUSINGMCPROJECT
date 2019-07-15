@@ -12,22 +12,23 @@ import static org.bukkit.Bukkit.getServer;
 public class LoginListener implements Listener {
     private Main plugin;
 
-    public LoginListener(Main plugin) {
+    public LoginListener(Main plugin){
         this.plugin = plugin;
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        String msg = plugin.getConfig().getString("JoinMs");
-        msg = ChatColor.translateAlternateColorCodes('&', util(msg, event.getPlayer()));
+    public void onPlayerLogin(PlayerJoinEvent event) {
+        String msg=plugin.getConfig().getString("JoinMs");
+        msg = ChatColor.translateAlternateColorCodes('&',util(msg,event.getPlayer()));
         event.setJoinMessage(msg);
-    }
 
-    private String util(String string, Player player) {
-        string = string.replaceAll("%player", player.getName());
-        string = string.replaceAll("%server", player.getServer().getServerName());
-        string = string.replaceAll("%online", Integer.toString(getServer().getOnlinePlayers().size()));
+        }
+
+        public String util(String string, Player player){
+            string= string.replaceAll("%player",player.getName());
+            string= string.replaceAll("%server",player.getServer().getServerName());
+            string = string.replaceAll("%online", Integer.toString(getServer().getOnlinePlayers().size()));
 
         return string;
-    }
+        }
 }
