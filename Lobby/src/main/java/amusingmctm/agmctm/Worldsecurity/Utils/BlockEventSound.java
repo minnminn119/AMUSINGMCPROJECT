@@ -1,7 +1,6 @@
 package amusingmctm.agmctm.Worldsecurity.Utils;
 
 import amusingmctm.agmctm.Main;
-import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
