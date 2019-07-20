@@ -3,6 +3,7 @@ package amusingmctm.agmctm;
 import amusingmctm.agmctm.Worldsecurity.Utils.BlockEventSound;
 import amusingmctm.agmctm.Worldsecurity.Utils.PlayerItemDropEventSound;
 import amusingmctm.agmctm.Worldsecurity.listeners.BlockEvent;
+import amusingmctm.agmctm.Worldsecurity.listeners.BucketEvent;
 import amusingmctm.agmctm.Worldsecurity.listeners.PlayerBedEvent;
 import amusingmctm.agmctm.Worldsecurity.listeners.PlayerItemDropEvent;
 import amusingmctm.agmctm.listeners.LoginListener;
@@ -41,6 +42,7 @@ public final class Main extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new BlockEvent(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerItemDropEvent(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerBedEvent(this),this);
+        this.getServer().getPluginManager().registerEvents(new BucketEvent(this),this);
         //Utils
         this.getServer().getPluginManager().registerEvents(new BlockEventSound(this),this);
         this.getServer().getPluginManager().registerEvents(new PlayerItemDropEventSound(this),this);
